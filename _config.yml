@@ -12,7 +12,7 @@ lang: en-US
 title: SPARKLERS:We Are The Makers
 email: sparkler988323@gmail.com
 description: "Official Blog Of Sparklers"
-baseurl: "\blog"  # the subpath of your site, e.g. /blog
+baseurl: "/blog"  # the subpath of your site, e.g. /blog
 url: ""  # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: Arijit Das
