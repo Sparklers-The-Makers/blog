@@ -17,7 +17,7 @@ url: ""  # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: Arijit Das
   twitter: arijit1080
-  picture: /assets/images/logo.jpg
+  picture: /blog/assets/images/logo.jpg
 facebook_username: sparklers2018
 github_username: Sparklers-The-Makers
 logo: /assets/icons/logo.jpg
