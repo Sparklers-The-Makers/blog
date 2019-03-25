@@ -21,7 +21,7 @@ author:
 facebook_username: sparklers2018
 github_username: Sparklers-The-Makers
 logo: /assets/icons/logo.jpg
-google_analytics: UA-2011187-6
+google_analytics: UA-136947764-1
 disqus:
   shortname: sparklers
 search: true
@@ -109,3 +109,8 @@ defaults:
     values:
       layout: post
       read_time: true
+---
+layout: default
+comments: true
+# other options
+---
