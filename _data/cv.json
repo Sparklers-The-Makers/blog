@@ -1,0 +1,170 @@
+{
+  "basics": {
+    "name": "Arijit Das",
+    "label": "Computer Science Student",
+    "picture": "https://raw.githubusercontent.com/Arijit1080/resume/gh-pages/assets/images/profile.png",
+    "email": "arijit1080@.com",
+    "phone": "(+91) 8617219494",
+    "website": "https://arijit1080.github.io/resume/",
+    "summary": "I believe that piece of code is mightier than pen as well as a sword. Programming and Solving problems are my passion and that what I strive to practice for my career.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Kolkata",
+      "countryCode": ",India",
+      "region": "WestBengal"
+    },
+    "profiles": [
+      {
+        "network": "linkedin",
+        "username": "arijit-das-1080",
+        "url": "https://www.linkedin.com/in/arijit-das-1080"
+      },
+      {
+        "network": "Twitter",
+        "username": "arijit1080",
+        "url": "https://twitter.com/arijit1080"
+      },
+      {
+        "network": "Github",
+        "username": "arijit1080",
+        "url": "https://github.com/Arijit1080/"
+      }
+    ]
+  },
+
+  "education": [
+    {
+      "institution": "Narula Institute Of Technology",
+      "area": "B.Tech",
+      "studyType": "Computer Science",
+      "startDate": "2017",
+      "endDate": "present",
+      "gpa": "8.58"
+    },{
+      "institution": "WBCHSE Board",
+      "area": "Higer Secondary Education",
+      "studyType": "Science Stream",
+      "startDate": "2015",
+      "endDate": "2017",
+      "marks": "83%"
+    },{
+      "institution": "WBBSE Board",
+      "area": "Secondary Education",
+      "studyType": "",
+      "startDate": "2010",
+      "endDate": "2015",
+      "marks": "89%"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Special Jury Award ",
+      "date": "Feb,2019",
+      "awarder": "Regent Education And Research Foundation",
+      "summary": "For displaying my project 'SPARK: The Smart Personal Assistant' "
+    },
+{
+      "title": "Best Innovative Project",
+      "date": "Feb,2019",
+      "awarder": "JIS college of Engineering",
+      "summary": "For displaying my project 'SPARK: The Smart Personal Assistant' "
+    },
+{
+      "title": "Gold Certificate",
+      "date": "Jan,2019",
+      "awarder": "NPTEL",
+      "summary": "Got gold Certificate in NPTEL Course 'Joy Of Computing Python' for getting 93% marks. "
+    },
+{
+      "title": "Topper in NPTEL",
+      "date": "Jan,2018",
+      "awarder": "NPTEL",
+      "summary": "Ranked in top 5% in NPTEL Course 'Problem Solving Through Programming NPTEL in C' for getting 87% marks "
+    },
+{
+      "title": "Certificate of Best Performer",
+      "date": "Apr,2018",
+      "awarder": "Narula Institute Of Technology",
+      "summary": "Got ”Certficate of Best Performer” award ,which is given to one student of CSE department from each year, from Narula Institute of Technology . "
+    },
+  ],
+
+  "skills": [
+    {
+      "name": "Programming Skills",
+      "level": "Master",
+      "keywords": [
+        "C",
+        "C++",
+        "Python",
+        "R",
+        "Shell Scripting",
+        "Latex",
+        "HTML5",
+        "CSS"
+      ]
+    },
+    {
+      "name": "Image Processing Tool",
+      "level": "Satisfactory",
+      "keywords": [
+        "OpenCV"
+      ]
+    },
+    {
+      "name": "Graphics Designing Tools",
+      "level": "Satisfactory",
+      "keywords": [
+        "Adobe photoshop",
+        "Adobe Premire Pro",
+        "Adobe After Effects"
+      ]
+    },
+    {
+      "name": "Microcontrollers and MicroProcessors Boards",
+      "level": "Satisfactory",
+      "keywords": [
+        "Raspberry Pi",
+        "Tinker Board", 
+        "Arduino",
+        "Esp8266"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "professional"
+    },
+    {
+      "language": "Bengali",
+      "fluency": "professional"
+    },
+    {
+      "language": "Hindi",
+      "fluency": "Native"
+    }
+    
+  ],
+  "interests": [
+    {
+      "name": "Robotics",
+      "keywords": [
+      ]
+    },{
+      "name": "Machine Learning",
+      "keywords": [
+      ]
+    },{
+      "name": "Cyber Security",
+      "keywords": [
+      ]
+    },{
+      "name": "Image Processing",
+      "keywords": [
+      ]
+    }
+  ]
+
+}
