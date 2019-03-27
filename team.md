@@ -1,5 +1,5 @@
 ---
-title: Author
+title: Team
 layout: cv
 actions:
   - label: "Download as PDF"

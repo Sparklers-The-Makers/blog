@@ -1,101 +1,124 @@
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
-.site-footer {
-  margin-top: 4rem;
-  color: tint($text-color, 40%);
-  font-size: 80%;
-
-  .inner {
-    padding: 0 0.5rem;
-
-    @include breakpoint($small) {
-      padding-right: 1rem;
-      padding-left: 1rem;
-    }
-
-    @include breakpoint($medium) {
-      padding-right: 2rem;
-      padding-left: 2rem;
-    }
-
-    @include breakpoint($large) {
-      padding-right: 3rem;
-      padding-left: 3rem;
-    }
-
-    @include breakpoint($xlarge) {
-      padding-right: 4rem;
-      padding-left: 4rem;
-    }
-  }
+.main_footer {
+	background-color: #1c1c1c;
+        
 }
 
-@import url(https://fonts.googleapis.com/css?family=Varela+Round);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-body{
-  padding:0;
-  margin:0; background:url(http://onlyfreewallpaper.com/walls/blur-winter-HD.jpg) no-repeat;
-  background-size:cover;
-  -webkit-font-smoothing: antialiased !important;
+.social_footer {
+        background-color: #1c1c1c;
+	padding: 3rem 0;
+	list-style: none;
+	margin: 0;
+	text-align: center;
+	border-bottom: 1px solid #333333;
 }
-.subscriptionbox{
-  width:320px;
-  padding:20px 35px;
-  margin:20px auto;
-  background:#fff;
-  box-shadow:inset 0px 0px 10px 10px rgba(0,0,0,0.2);
-  color:#666;
-  font:400 13px 'open sans',sans-serif;
-  line-height:20px !important;
+
+.social_footer li {
+	display: inline-block;
+	margin-left: 0.5rem;
 }
-.subscriptionbox h2{
-  font:400 30px 'varela round',sans-serif;
-  color:#333;
-  text-align:center;
-  text-transform:uppercase;
-  padding:10px 0;
-  margin-bottom:10px;
-  border-bottom:1px solid #666;
+
+.social_footer a {
+	color: #7b7b7b;
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	margin: 0.3rem 0;
+	text-decoration: none;
+	font-size: 1.75rem;
+	border-radius: 0.3rem;
+	background-color: #262626;
+	transition: all .35s ease-in-out;
 }
-.subscriptionbox .betextarea{
-  background:#222 url(http://www.rhism.com/images/email-icon.png) no-repeat;
-  background-size:20px;
-  border:none;
-  background-position:20px 13px;
-  height:10px;
-  width:250px;
-  padding:20px 10px;
-  color:#fff;
-  text-indent:40px;
-  outline:none;
-  margin-top:10px;
+
+.social_footer a:hover {
+	background-color: #c0334a;
+	color: #ffffff;
 }
-.besubmit{
-  padding:0;
-  height:40px;
-  line-height:40px !important;
-  width:250px;
-  text-align:center;
-  font:400 15px 'open sans',sans-serif;
-  background:#e74c3c;
-  color:#fff;
-  border:none;
-  display:block;
-  text-transform:uppercase;
-  margin-top:5px;
-  border-radius:5px;
-  cursor:pointer;
-  position:relative;
-    -moz-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  -webkit-transition: all .3s ease-in-out;
-}
-.besubmit:hover{
-  background:#c0392b;
-}
+
 .copyright {
-  font-family: $monospace-font-family;
+        background-color: #1c1c1c;
+	padding: 1rem 0;
+	text-align: center;
+}
+
+.copyright p {
+	color: #ffffff;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.copyright a {
+	text-decoration: none;
+	color: #c0334a;
+	transition: all .35s ease-in-out;
+}
+
+.copyright a:hover {
+	color: rgba(192, 51, 74, 0.75);
+}
+
+.newsletter {
+	padding: 2rem 0;
+	text-align: center;
+	color: #ffffff;
+}
+
+.newsletter .newsletter_title {
+	text-transform: uppercase;
+	font-size: 2.1rem;
+	margin: 0 0 1rem;
+}
+
+.newsletter form {
+	width: 700px;
+	max-width: 90%;
+	margin: 0 auto;
+}
+
+.newsletter form label {
+	display: block;
+	font-size: 1.35rem;
+	font-weight: 400;
+}
+
+.newsletter form .newsletter_box {
+	padding: 2rem 0;
+	position: relative;
+}
+
+.newsletter form .email_input {
+	width: 100%;
+	padding: 1.35rem 3rem;
+	border-radius: 2.5rem;
+	background-color: #333333;
+	color: #6e6e6e;
+	border: none;
+	outline: none;
+}
+
+.newsletter form .subscribe_btn {
+	width: 170px;
+	padding: 1.35rem;
+	color: #ffffff;
+	font-size: 0.9rem;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #c0334a;
+	cursor: pointer;
+	border-radius: 2.5rem;
+	border: none;
+	outline: none;
+	position: relative;
+	top: 33px;
+	right: 0;
+	transition: background .35s ease-in-out;
+
+}
+
+.newsletter form .subscribe_btn:hover {
+	background-color: rgba(192, 51, 74, 0.75);
+}
+
+.newsletter form .subscribe_btn:active {
+	background-color: rgba(192, 51, 74, 0.5);
 }

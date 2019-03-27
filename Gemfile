@@ -12,4 +12,6 @@ gem "jekyll-remote-theme"
 #   gem "jekyll-gist"
 #   gem "jekyll-feed"
 #   gem "jemoji"
+#   gem 'bootstrap-sass'
 # end
+gem 'bootstrap-sass'

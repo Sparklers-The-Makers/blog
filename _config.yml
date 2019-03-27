@@ -58,7 +58,39 @@ sass:
 # Outputting
 permalink: /:categories/:title/
 timezone: Asia/Calcutta # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+people:
+- name: Ayan Dey
+  pic: 1
+  position: Phd Research Scholar
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: https://www.facebook.com/ayan.dey.528
+    - title: envelope
+      url: mailto:deyayan9@gmail.com
 
+- name: Rahul Dutta
+  pic: 2
+  position: Computer Science Engineering Student
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: https://www.facebook.com/stack.overflowww
+    - title: envelope
+      url: mailto:farazfarhat2@gmail.com
+
+- name: Arijit Das
+  pic: 3
+  position: Computer Science Engineering Student
+  social:
+    - title: linkedin
+      url: www.linkedin.com/in/arijit-das-1080
+    - title: facebook
+      url: https://www.facebook.com/people/Arijit-Das/100009569555607
+    - title: envelope
+      url: mailto:arijit1080@gmail.com
 # Plugins
 plugins: # previously gems
   - jekyll-feed
