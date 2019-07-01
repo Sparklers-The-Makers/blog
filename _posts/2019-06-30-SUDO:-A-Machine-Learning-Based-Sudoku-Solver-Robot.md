@@ -17,9 +17,9 @@ email: arijit1080@gmail.com
 phone: +918617219494
 facebook: www.facebook.com/profile.php?id=100009569555607
 linkedin: www.linkedin.com/in/arijit-das-1080/
-subtitle:   "How TO Make : A Machine Learning Based Sudoku Solving Robot."
-description: "How to make a machine learning based sudoku solver robot using a Raspberry Pi from scratch"
-image: "/img/sudo/sudo1.jpg"
+subtitle:   "How to make a machine learning based sudoku solver robot using a Raspberry Pi from scratch."
+description: "How to make a machine learning based sudoku solver robot using a Raspberry Pi from scratch."
+image: /img/sudo/sudo1.jpg
 last_modified_at: 2019-06-30T14:25:52-05:00
 ---
 
