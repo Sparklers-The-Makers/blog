@@ -16,7 +16,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}" />
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.head-image }}" />
 <meta property="og:site_name" content="SPARKLERS : We Are The Makers">
 <meta property="article:publisher" content="http://www.facebook.com/sparklers2018" />
 <meta property="article:author" content="https://www.facebook.com/profile.php?id=100009569555607" />
@@ -40,7 +40,7 @@
   <meta name="twitter:description" content="{{ site.description }}">
 {% endif %}
 {% if page.header-img %}
-  <meta name="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}">
+  <meta name="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}{{ page.head-image }}">
 {% endif %}
 
   {% if site.plugins contains 'jekyll-seo-tag' or site.gems contains 'jekyll-seo-tag' %}

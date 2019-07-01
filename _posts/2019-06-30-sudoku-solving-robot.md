@@ -19,7 +19,7 @@ facebook: www.facebook.com/profile.php?id=100009569555607
 linkedin: www.linkedin.com/in/arijit-das-1080/
 subtitle:   "How to make a machine learning based sudoku solver robot using a Raspberry Pi from scratch."
 description: "How to make a machine learning based sudoku solver robot using a Raspberry Pi from scratch."
-image: "/img/sudo/sudo1.jpg"
+head-image: "/img/sudo/sudo1.jpg"
 last_modified_at: 2019-06-30T14:25:52-05:00
 ---
 
