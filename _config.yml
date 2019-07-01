@@ -10,7 +10,7 @@ remote_theme: "mmistakes/jekyll-theme-basically-basic"
 # Site Settings
 lang: en-US
 title: SPARKLERS:We Are The Makers
-email: sparkler988323@gmail.com
+email: arijit1080@gmail.com
 description: "Official Blog Of Sparklers"
 baseurl: "/blog"  # the subpath of your site, e.g. /blog
 url: ""  # the base hostname & protocol for your site, e.g. http://example.com
@@ -59,6 +59,16 @@ sass:
 permalink: /:categories/:title/
 timezone: Asia/Calcutta # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 people:
+- name: Arijit Das
+  pic: 3
+  position: Computer Science Engineering Student
+  social:
+    - title: linkedin
+      url: www.linkedin.com/in/arijit-das-1080
+    - title: facebook
+      url: https://www.facebook.com/people/Arijit-Das/100009569555607
+    - title: envelope
+      url: mailto:arijit1080@gmail.com
 - name: Ayan Dey
   pic: 1
   position: Phd Research Scholar
@@ -81,16 +91,8 @@ people:
     - title: envelope
       url: mailto:farazfarhat2@gmail.com
 
-- name: Arijit Das
-  pic: 3
-  position: Computer Science Engineering Student
-  social:
-    - title: linkedin
-      url: www.linkedin.com/in/arijit-das-1080
-    - title: facebook
-      url: https://www.facebook.com/people/Arijit-Das/100009569555607
-    - title: envelope
-      url: mailto:arijit1080@gmail.com
+
+
 # Plugins
 plugins: # previously gems
   - jekyll-feed

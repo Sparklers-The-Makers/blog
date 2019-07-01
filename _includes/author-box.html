@@ -1,0 +1,21 @@
+<section class="author-box">
+  <img src="{{ site.url }}{{ site.baseurl }}/team/img/team/3.jpg" alt="" class="author-img">
+  <div class="author-desc">
+    <h2>{{page.author-name}}</h2>
+    <p>{{page.author-intro}}</p>
+    <ul>
+      {% if page.email %}
+        <li class="email"><a href="mailto:{{page.email}}"><i class="fa fa-envelope-o"></i></a></li>
+      {% endif %}
+      {% if page.phone %}
+        <li class="phone"><a href="tel:{{page.phone}}"><i class="fa fa-phone"></i></a></li>
+      {% endif %}
+      {% if page.linkedin %}
+        <li class="linkedin"><a href="http://{{page.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      {% endif %}
+      {% if page.facebook %}
+        <li class="facebook"><a href="https://{{page.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      {% endif %}
+    </ul>
+  </div>
+</section>

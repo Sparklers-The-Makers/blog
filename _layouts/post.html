@@ -10,6 +10,13 @@ layout: default
       <div class="entry-content">
         {{ content }}
       </div>
+{% include share-bar.html %}
+<hr>
+<h3>The Author :</h3>
+{% include author-box.html %}
+<hr>
+<h2>Like our facebook page so that you won't miss out future updates</h2>
+<p>Follow us on facebook at : {% include icon-facebook.html username="sparklers2018" %}</p>
       <!--{% if site.disqus.shortname %}
         {% include disqus_comments.html %}
       {% endif %}-->
