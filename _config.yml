@@ -14,12 +14,14 @@ email: arijit1080@gmail.com
 description: "Official Blog Of Sparklers"
 baseurl: "/blog"  # the subpath of your site, e.g. /blog
 url: "https://sparklers-the-makers.github.io"  # the base hostname & protocol for your site, e.g. http://example.com
+youtube_url: "https://www.youtube.com/channel/UCB_0VfhJAqadjJPNhHmFg"
 author:
   name: Arijit Das
   twitter: arijit1080
-  picture: /blog/assets/images/logo.jpg
+  picture: /blog/assets/images/3d_logo.jpg
 facebook_username: sparklers2018
 github_username: Sparklers-The-Makers
+youtube_username: channel/UCB_0Vf--hJAqadjJPNhHmFg
 logo: /assets/icons/logo.jpg
 google_analytics: UA-136947764-1
 disqus:
@@ -59,16 +61,7 @@ sass:
 permalink: /:categories/:title/
 timezone: Asia/Calcutta # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 people:
-- name: Arijit Das
-  pic: 3
-  position: Computer Science Engineering Student
-  social:
-    - title: linkedin
-      url: www.linkedin.com/in/arijit-das-1080
-    - title: facebook
-      url: https://www.facebook.com/people/Arijit-Das/100009569555607
-    - title: envelope
-      url: mailto:arijit1080@gmail.com
+
 - name: Ayan Dey
   pic: 1
   position: Phd Research Scholar
@@ -91,7 +84,16 @@ people:
     - title: envelope
       url: mailto:farazfarhat2@gmail.com
 
-
+- name: Arijit Das
+  pic: 3
+  position: Computer Science Engineering Student
+  social:
+    - title: linkedin
+      url: www.linkedin.com/in/arijit-das-1080
+    - title: facebook
+      url: https://www.facebook.com/people/Arijit-Das/100009569555607
+    - title: envelope
+      url: mailto:arijit1080@gmail.com
 
 # Plugins
 plugins: # previously gems
