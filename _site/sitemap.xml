@@ -12,6 +12,9 @@
 <loc>http://localhost:4000/blog/about/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/blog/achievements/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/blog/categories/</loc>
 </url>
 <url>
