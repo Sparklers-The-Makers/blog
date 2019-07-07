@@ -24,7 +24,7 @@ last_modified_at: 2019-06-30T14:25:52-05:00
 ---
 
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/68ClHuLKP10?" frameborder="0" allowfullscreen></iframe>
+  <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/sW_Nb6YLvdg?" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ## !!Attention: Before you start reading this article, please watch the above video once as it is how the final model will work.
