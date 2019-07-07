@@ -802,14 +802,15 @@ Just download these files and save them in the same folder. Then run the main.py
 
 ## Showcasing Our Sudoku Solver
 So we gave it a name SUDO and showcased it in "Kolkata Mini Makers Faire 2019" (First time in Eastern India). And we got a great appreciation from the audience.
-<figure class="align-center">
-  <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/sudo/show1.jpg" alt="" width="500" height="500"></a>
-  <figcaption>Showcasing SUDO to few visitors</figcaption>
+<figure class="align-left">
+  <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/sudo/show1.jpg" alt="" width="360" height="300"></a>
+  <figcaption><center>Showcasing SUDO to few visitors</center></figcaption>
 </figure>  
-<figure class="align-center">
-  <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/sudo/show2.jpg" alt="" width="500" height="500"></a>
-  <figcaption>Giving interview to a newspaper reporter</figcaption>
+<figure class="align-right">
+  <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/sudo/show2.jpg" alt="" width="340" height="300"></a>
+  <figcaption><center>Giving interview to a newspaper reporter</center></figcaption>
 </figure> 
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <!---## Like our facebook page so that you won't miss out future updates
 Follow us on facebook at : {% include icon-facebook.html username="sparklers2018" %}-->
 

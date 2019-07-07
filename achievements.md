@@ -43,7 +43,7 @@ Got "Best Project" award in Computer Science and Engineering department from Nar
 Got selected to showcase our project "SUDO:Machine Learning based sudoku solver robot" in Kolkata International Book Fare 2018 ( The first Maker Faire in Eastern India).
 <figure class="align-left">
   <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/sudo/show1.jpg" alt="" width="400" height="300"></a>
-  <figcaption>Showcasing SUDO to few visitors</figcaption>
+  <figcaption><center>Showcasing SUDO to few visitors</center></figcaption>
 </figure>  
 <figure class="align-right">
   <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/sudo/show2.jpg" alt="" width="380" height="300"></a>
