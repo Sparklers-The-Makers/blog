@@ -1,12 +1,12 @@
 ---
-title: "How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python"
+title: "Use Neo 6M GPS Module with Raspberry Pi and Python"
 image: 
-  path: "/img/gps/gps.jpg"
-  thumbnail: "/img/gps/gps.jpg"
+  path: "/img/gps/gps2.jpg"
+  thumbnail: "/img/gps/gps2.jpg"
 categories:
   - Robotics
 read_time: true
-url: gps-tracker-using-raspberry-pi
+url: use-neo-6m-module-with-raspberry-pi
 tags:
   - Robotics
   - Python
@@ -23,7 +23,7 @@ head-image: "/img/gps/gps.jpg"
 last_modified_at: 2019-07-11T11:52:25-05:00
 ---
 
-In this article we are going to see how to make a live GPS tracker using Raspberry Pi, Neo 6M GPS module and python from the scratch. So basically at the end of the day We will have a small device, which we can track from anywhere in the world using phone, computer or any smart device. So lets get started.
+In this article we are going to see how to use Neo 6M GPS module with Raspberry Pi and also how to use python to process the GPS data.
 
 ## Hardware Part:
 So at first lets talk about the hardware part. Here I will use Raspberry Pi 3 B+, but You can also use other varients like Raspberry Pi Zero, Raspberry Pi 4 etc. I am using Neo 6M as GPS module because it's quite cheap and also very much accurate.
@@ -162,39 +162,4 @@ If you run this python code you will see a output like this:
 
 I am not moving this device thats why it's giving me the same GPS location. But as you can see it's working properly.
 
-### Sending the GPS data to server:
-
-Now we also need to send the GPS data to a server where we will write server side code to show the current GPS location in a map. So to do so we need to modify the previous code a little bit:
-
-```python
-import socket
-import sys
-import time
-import serial
-import string
-import pynmea2
-
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-IP_address = "Write_your_server_ip_here"
-Port = write_the_port_no
-server.connect((IP_address, Port))
-
-while True:
-	port="/dev/ttyAMA0"
-	ser=serial.Serial(port, baudrate=9600, timeout=0.5)
-	dataout = pynmea2.NMEAStreamReader()
-	newdata=ser.readline()
-
-	if newdata[0:6] == "$GPRMC":
-		newmsg=pynmea2.parse(newdata)
-		lat=newmsg.latitude
-		lng=newmsg.longitude
-		gps = str(lat)+' '+str(lng) //May need to change the format depending on the format in which server will accept the data.
-		server.send()
-server.close()
-```
-
-Now the only thing remaining is to receive this data in server and show that in a map. I will talk about that in another article as this one is already quite long.
- 
-So at the end of this article we have a device which can send realtime GPS data to any server.
+So at the end of this article we have a device which can give us realtime gps data. In the next blog we will see how to use this device to make a live GPS tracker, means from anywhere in the world we will be able to track this device.

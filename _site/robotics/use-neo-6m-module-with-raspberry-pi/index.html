@@ -10,18 +10,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="description" content="In this article we are going to see how to make a live GPS tracker using Raspberry Pi, Neo 6M GPS module and python from the scratch. So basically at the end...">
+     <meta name="description" content="In this article we are going to see how to use Neo 6M GPS module with Raspberry Pi and also how to use python to process the GPS data.">
 <title>
    
-       How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python
+       Use Neo 6M GPS Module with Raspberry Pi and Python
    
 </title>
 
 <meta itemprop="description" name="description" content="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python." />
  <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python">
-<meta property="og:url" content="http://localhost:4000/robotics/gps-tracker-using-raspberry-pi/">
+<meta property="og:title" content="Use Neo 6M GPS Module with Raspberry Pi and Python">
+<meta property="og:url" content="http://localhost:4000/robotics/use-neo-6m-module-with-raspberry-pi/">
 <meta property="og:image" content="http://localhost:4000/blog/img/gps/gps.jpg" />
 <meta property="og:site_name" content="SPARKLERS : We Are The Makers">
 <meta property="article:publisher" content="http://www.facebook.com/sparklers2018" />
@@ -33,10 +33,10 @@
 <meta name="twitter:site" content="@vdaubry">
 <meta name="twitter:creator" content="@vdaubry">
 
-  <meta name="twitter:title" content="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python">
+  <meta name="twitter:title" content="Use Neo 6M GPS Module with Raspberry Pi and Python">
 
 
-  <meta name="twitter:url" content="http://localhost:4000/robotics/gps-tracker-using-raspberry-pi/">
+  <meta name="twitter:url" content="http://localhost:4000/robotics/use-neo-6m-module-with-raspberry-pi/">
 
 
   <meta name="twitter:description" content="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python.">
@@ -46,21 +46,21 @@
   
     
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python | SPARKLERS:We Are The Makers</title>
+<title>Use Neo 6M GPS Module with Raspberry Pi and Python | SPARKLERS:We Are The Makers</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python" />
+<meta property="og:title" content="Use Neo 6M GPS Module with Raspberry Pi and Python" />
 <meta name="author" content="Arijit Das" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python." />
 <meta property="og:description" content="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python." />
-<link rel="canonical" href="http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/" />
-<meta property="og:url" content="http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/" />
+<link rel="canonical" href="http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/" />
+<meta property="og:url" content="http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/" />
 <meta property="og:site_name" content="SPARKLERS:We Are The Makers" />
-<meta property="og:image" content="http://localhost:4000/blog/img/gps/gps.jpg" />
+<meta property="og:image" content="http://localhost:4000/blog/img/gps/gps2.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-07-10T00:00:00+05:30" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/icons/logo.jpg"},"name":"Arijit Das"},"@type":"BlogPosting","url":"http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/","headline":"How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python","dateModified":"2019-07-11T22:22:25+05:30","datePublished":"2019-07-10T00:00:00+05:30","author":{"@type":"Person","name":"Arijit Das"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/"},"image":{"thumbnail":"/img/gps/gps.jpg","url":"http://localhost:4000/blog/img/gps/gps.jpg","@type":"imageObject"},"description":"How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python.","@context":"http://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/icons/logo.jpg"},"name":"Arijit Das"},"@type":"BlogPosting","url":"http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/","headline":"Use Neo 6M GPS Module with Raspberry Pi and Python","dateModified":"2019-07-11T22:22:25+05:30","datePublished":"2019-07-10T00:00:00+05:30","author":{"@type":"Person","name":"Arijit Das"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/"},"image":{"thumbnail":"/img/gps/gps2.jpg","url":"http://localhost:4000/blog/img/gps/gps2.jpg","@type":"imageObject"},"description":"How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python.","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -85,7 +85,7 @@
 </head>
 
 
-  <body class="layout--post how-to-make-a-gps-tracker-with-raspberry-pi-neo-6m-gps-module-and-python">
+  <body class="layout--post use-neo-6m-gps-module-with-raspberry-pi-and-python">
 
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
@@ -248,13 +248,13 @@ Get our newsletters right into your inbox by subscribing us.
     
     
     <div class="intro-image">
-      <img src="/blog/img/gps/gps.jpg" alt="How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python">
+      <img src="/blog/img/gps/gps2.jpg" alt="Use Neo 6M GPS Module with Raspberry Pi and Python">
     </div>
   
 
   <div class="inner">
     <div class="intro-text">
-      <h1 id="page-title" class="intro-title">How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python
+      <h1 id="page-title" class="intro-title">Use Neo 6M GPS Module with Raspberry Pi and Python
 </h1>
       
 
@@ -262,7 +262,7 @@ Get our newsletters right into your inbox by subscribing us.
         
 
         <p class="entry-meta">
-          <span class="byline-item">by Arijit Das</span><span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time datetime="2019-07-10T00:00:00+05:30">July 10, 2019</time></span> <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="15 309.7 16 16"><g><path d="M23.9 315.1v3.6c0 .5-.4.9-.9.9s-.9-.4-.9-.9v-3.6h1.8z"/><path d="M30.1 317.7c.5 3.9-2.3 7.5-6.2 7.9-3.9.5-7.5-2.3-7.9-6.2-.5-3.9 2.3-7.5 6.2-7.9v-1.8H24v1.8c1.1.1 2.7.7 3.5 1.4l1.3-1.3 1.3 1.3-1.3 1.3c.5.9 1.2 2.5 1.3 3.5zm-1.8.9c0-2.9-2.4-5.3-5.3-5.3s-5.3 2.4-5.3 5.3 2.4 5.3 5.3 5.3 5.3-2.3 5.3-5.3z"/></g></svg></span>5 min read</span>
+          <span class="byline-item">by Arijit Das</span><span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time datetime="2019-07-10T00:00:00+05:30">July 10, 2019</time></span> <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="15 309.7 16 16"><g><path d="M23.9 315.1v3.6c0 .5-.4.9-.9.9s-.9-.4-.9-.9v-3.6h1.8z"/><path d="M30.1 317.7c.5 3.9-2.3 7.5-6.2 7.9-3.9.5-7.5-2.3-7.9-6.2-.5-3.9 2.3-7.5 6.2-7.9v-1.8H24v1.8c1.1.1 2.7.7 3.5 1.4l1.3-1.3 1.3 1.3-1.3 1.3c.5.9 1.2 2.5 1.3 3.5zm-1.8.9c0-2.9-2.4-5.3-5.3-5.3s-5.3 2.4-5.3 5.3 2.4 5.3 5.3 5.3 5.3-2.3 5.3-5.3z"/></g></svg></span>4 min read</span>
         </p>
       
 
@@ -278,7 +278,7 @@ Get our newsletters right into your inbox by subscribing us.
   <div class="inner">
     <article class="entry-wrap">
       <div class="entry-content">
-        <p>In this article we are going to see how to make a live GPS tracker using Raspberry Pi, Neo 6M GPS module and python from the scratch. So basically at the end of the day We will have a small device, which we can track from anywhere in the world using phone, computer or any smart device. So lets get started.</p>
+        <p>In this article we are going to see how to use Neo 6M GPS module with Raspberry Pi and also how to use python to process the GPS data.</p>
 
 <h2 id="hardware-part">Hardware Part:</h2>
 <p>So at first lets talk about the hardware part. Here I will use Raspberry Pi 3 B+, but You can also use other varients like Raspberry Pi Zero, Raspberry Pi 4 etc. I am using Neo 6M as GPS module because it’s quite cheap and also very much accurate.</p>
@@ -415,41 +415,7 @@ sudo systemctl disable serial-getty@ttyS0.service
 
 <p>I am not moving this device thats why it’s giving me the same GPS location. But as you can see it’s working properly.</p>
 
-<h3 id="sending-the-gps-data-to-server">Sending the GPS data to server:</h3>
-
-<p>Now we also need to send the GPS data to a server where we will write server side code to show the current GPS location in a map. So to do so we need to modify the previous code a little bit:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">serial</span>
-<span class="kn">import</span> <span class="nn">string</span>
-<span class="kn">import</span> <span class="nn">pynmea2</span>
-
-<span class="n">server</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-
-<span class="n">IP_address</span> <span class="o">=</span> <span class="s">"Write_your_server_ip_here"</span>
-<span class="n">Port</span> <span class="o">=</span> <span class="n">write_the_port_no</span>
-<span class="n">server</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">IP_address</span><span class="p">,</span> <span class="n">Port</span><span class="p">))</span>
-
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-	<span class="n">port</span><span class="o">=</span><span class="s">"/dev/ttyAMA0"</span>
-	<span class="n">ser</span><span class="o">=</span><span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-	<span class="n">dataout</span> <span class="o">=</span> <span class="n">pynmea2</span><span class="o">.</span><span class="n">NMEAStreamReader</span><span class="p">()</span>
-	<span class="n">newdata</span><span class="o">=</span><span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-
-	<span class="k">if</span> <span class="n">newdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s">"$GPRMC"</span><span class="p">:</span>
-		<span class="n">newmsg</span><span class="o">=</span><span class="n">pynmea2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-		<span class="n">lat</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">latitude</span>
-		<span class="n">lng</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">longitude</span>
-		<span class="n">gps</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">+</span><span class="s">' '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">lng</span><span class="p">)</span> <span class="o">//</span><span class="n">May</span> <span class="n">need</span> <span class="n">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">format</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">the</span> <span class="n">format</span> <span class="ow">in</span> <span class="n">which</span> <span class="n">server</span> <span class="n">will</span> <span class="n">accept</span> <span class="n">the</span> <span class="n">data</span><span class="o">.</span>
-		<span class="n">server</span><span class="o">.</span><span class="n">send</span><span class="p">()</span>
-<span class="n">server</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p>Now the only thing remaining is to receive this data in server and show that in a map. I will talk about that in another article as this one is already quite long.</p>
-
-<p>So at the end of this article we have a device which can send realtime GPS data to any server.</p>
+<p>So at the end of this article we have a device which can give us realtime gps data. In the next blog we will see how to use this device to make a live GPS tracker, means from anywhere in the world we will be able to track this device.</p>
 
       </div>
 
@@ -458,39 +424,39 @@ sudo systemctl disable serial-getty@ttyS0.service
     <h4>Share this:</h4>
 
     <div class="share-buttons">
-        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/"
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Facebook" >
             <i class="fa fa-facebook-official share-button"> facebook</i>
         </a>
 
-        <a  href="https://twitter.com/intent/tweet?text=How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python&url=http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/"
+        <a  href="https://twitter.com/intent/tweet?text=Use Neo 6M GPS Module with Raspberry Pi and Python&url=http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Twitter" >
             <i class="fa fa-twitter share-button"> twitter</i>
         </a>
 
 
-        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/"
+        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Pinterest" >
             <i class="fa fa-pinterest-p share-button"> pinterest</i>
         </a>
 
 
-        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/"
+        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on Reddit" >
             <i class="fa fa-reddit-alien share-button"> reddit</i>
         </a>
 
-        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/&title=How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python&summary=How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python.&source=SPARKLERS:We Are The Makers"
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/&title=Use Neo 6M GPS Module with Raspberry Pi and Python&summary=How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python.&source=SPARKLERS:We Are The Makers"
             onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
             title="Share on LinkedIn" >
             <i class="fa fa-linkedin share-button"> linkedin</i>
         </a>
 
-        <a  href="mailto:?subject=How To Make: A GPS Tracker with Raspberry Pi, Neo 6M GPS Module and Python&amp;body=Check out this site http://localhost:4000/blog/robotics/gps-tracker-using-raspberry-pi/"
+        <a  href="mailto:?subject=Use Neo 6M GPS Module with Raspberry Pi and Python&amp;body=Check out this site http://localhost:4000/blog/robotics/use-neo-6m-module-with-raspberry-pi/"
             title="Share via Email" >
             <i class="fa fa-envelope share-button"> email</i>
         </a>
