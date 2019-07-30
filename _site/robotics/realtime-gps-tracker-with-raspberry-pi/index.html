@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.4.1
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="In this article we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python and...">
+<title>
+   
+       Make a Realtime GPS Tracker device with Raspberry Pi
+   
+</title>
+
+<meta itemprop="description" name="description" content="Make A Realtime GPS Tracker Device With Raspberry Pi." />
+ <meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make a Realtime GPS Tracker device with Raspberry Pi">
+<meta property="og:url" content="http://localhost:4000/robotics/realtime-gps-tracker-with-raspberry-pi/">
+<meta property="og:image" content="http://localhost:4000/blog/img/gps/gps.jpg" />
+<meta property="og:site_name" content="SPARKLERS : We Are The Makers">
+<meta property="article:publisher" content="http://www.facebook.com/sparklers2018" />
+<meta property="article:author" content="https://www.facebook.com/profile.php?id=100009569555607" />
+<meta property="article:published_time" content="2019-07-11 11:52:25 -0500" />
+<meta property="og:description" content="Make A Realtime GPS Tracker Device With Raspberry Pi.">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@vdaubry">
+<meta name="twitter:creator" content="@vdaubry">
+
+  <meta name="twitter:title" content="Make a Realtime GPS Tracker device with Raspberry Pi">
+
+
+  <meta name="twitter:url" content="http://localhost:4000/robotics/realtime-gps-tracker-with-raspberry-pi/">
+
+
+  <meta name="twitter:description" content="Make A Realtime GPS Tracker Device With Raspberry Pi.">
+
+
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Make a Realtime GPS Tracker device with Raspberry Pi | SPARKLERS:We Are The Makers</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Make a Realtime GPS Tracker device with Raspberry Pi" />
+<meta name="author" content="Arijit Das" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Make A Realtime GPS Tracker Device With Raspberry Pi." />
+<meta property="og:description" content="Make A Realtime GPS Tracker Device With Raspberry Pi." />
+<link rel="canonical" href="http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/" />
+<meta property="og:url" content="http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/" />
+<meta property="og:site_name" content="SPARKLERS:We Are The Makers" />
+<meta property="og:image" content="http://localhost:4000/blog/img/tracker/tracker.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-28T00:00:00+05:30" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/blog/assets/icons/logo.jpg"},"name":"Arijit Das"},"@type":"BlogPosting","url":"http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/","headline":"Make a Realtime GPS Tracker device with Raspberry Pi","dateModified":"2019-07-11T22:22:25+05:30","datePublished":"2019-07-28T00:00:00+05:30","author":{"@type":"Person","name":"Arijit Das"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/"},"image":{"thumbnail":"/img/tracker/tracker.jpg","url":"http://localhost:4000/blog/img/tracker/tracker.jpg","@type":"imageObject"},"description":"Make A Realtime GPS Tracker Device With Raspberry Pi.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/blog/assets/stylesheets/main.css">
+  <link rel="shortcut icon" type="image/png" href="/blog/assets/icons/favicon.ico">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,600,600i">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="SPARKLERS:We Are The Makers" href="/blog/atom.xml">
+  
+</head>
+
+
+  <body class="layout--post make-a-realtime-gps-tracker-device-with-raspberry-pi">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+        <button class="search-toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <title>Search</title>
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/blog/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+        <li class="menu-item">
+          <a href="/blog/about/" itemprop="url">
+            <span itemprop="name">About</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/blog/projects/" itemprop="url">
+            <span itemprop="name">Projects</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/blog/posts/" itemprop="url">
+            <span itemprop="name">Post Archive</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/blog/team/" itemprop="url">
+            <span itemprop="name">Team</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/blog/achievements/" itemprop="url">
+            <span itemprop="name">Achievements</span>
+          </a>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:arijit1080@gmail.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+  
+    <li><a href="https://www.facebook.com/sparklers2018">
+  <span class="icon icon--facebook"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg></span>
+  <span class="label">Facebook</span>
+</a>
+</li>
+  
+  
+    <li><a href="https://www.youtube.com/channel/UCB_0Vf--hJAqadjJPNhHmFg">
+  <span class="icon icon--youtube"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M0 7.345c0-1.294.16-2.59.16-2.59s.156-1.1.636-1.587c.608-.637 1.408-.617 1.764-.684C3.84 2.36 8 2.324 8 2.324s3.362.004 5.6.166c.314.038.996.04 1.604.678.48.486.636 1.588.636 1.588S16 6.05 16 7.346v1.258c0 1.296-.16 2.59-.16 2.59s-.156 1.102-.636 1.588c-.608.638-1.29.64-1.604.678-2.238.162-5.6.166-5.6.166s-4.16-.037-5.44-.16c-.356-.067-1.156-.047-1.764-.684-.48-.487-.636-1.587-.636-1.587S0 9.9 0 8.605v-1.26zm6.348 2.73V5.58l4.323 2.255-4.32 2.24z"/></svg></span>
+  <span class="label">Youtube</span>
+</a>
+</li>
+  
+
+   
+<!--<div class="subscriptionbox">
+  <h2>Subscribe Us</h2>
+Get our newsletters right into your inbox by subscribing us.
+<form action="https://feedburner.google.com/fb/a/mailverify" id="feedform" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=SparklersweAreTheMakers', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+<input gtbfieldid="3" class="betextarea" name="email" onblur="if (this.value == &quot;&quot;) {this.value = &quot;Enter email address here&quot;;}" onfocus="if (this.value == &quot;Enter email address here&quot;) {this.value = &quot;&quot;;}" value="Enter email address here" type="text">
+<input type="hidden" value="SparklersweAreTheMakers" name="uri"><input type="hidden" name="loc" value="en_US">
+<input class="besubmit" value="Submit" type="submit">
+</form>
+</div>-->
+
+
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/blog/">
+            <img src="/blog/assets/icons/logo.jpg" alt="" class="site-logo">
+            <span>SPARKLERS:We Are The Makers</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          <header class="intro">
+  
+    
+    
+    
+    <div class="intro-image">
+      <img src="/blog/img/tracker/tracker.jpg" alt="Make a Realtime GPS Tracker device with Raspberry Pi">
+    </div>
+  
+
+  <div class="inner">
+    <div class="intro-text">
+      <h1 id="page-title" class="intro-title">Make a Realtime GPS Tracker device with Raspberry Pi
+</h1>
+      
+
+      
+        
+
+        <p class="entry-meta">
+          <span class="byline-item">by Arijit Das</span><span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time datetime="2019-07-28T00:00:00+05:30">July 28, 2019</time></span> <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="15 309.7 16 16"><g><path d="M23.9 315.1v3.6c0 .5-.4.9-.9.9s-.9-.4-.9-.9v-3.6h1.8z"/><path d="M30.1 317.7c.5 3.9-2.3 7.5-6.2 7.9-3.9.5-7.5-2.3-7.9-6.2-.5-3.9 2.3-7.5 6.2-7.9v-1.8H24v1.8c1.1.1 2.7.7 3.5 1.4l1.3-1.3 1.3 1.3-1.3 1.3c.5.9 1.2 2.5 1.3 3.5zm-1.8.9c0-2.9-2.4-5.3-5.3-5.3s-5.3 2.4-5.3 5.3 2.4 5.3 5.3 5.3 5.3-2.3 5.3-5.3z"/></g></svg></span>7 min read</span>
+        </p>
+      
+
+      
+
+      
+    </div>
+  </div>
+</header>
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        <p>In this article we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python and Javascript. At the end our client side will look something like this:</p>
+
+<figure class="align-center">
+  <a href="#"><img src="http://localhost:4000/blog/img/tracker/map2.gif" alt="" width="480" height="360" /></a>
+  <figcaption><center>GPS Tracking Webpage</center></figcaption>
+</figure>
+
+<h2 id="hardware-part">Hardware Part:</h2>
+<p>So here I am going to use Raspberry Pi 3B+ but you can also use Raspberry Pi zero as in that case the size of the device will be much smaller and the procedure is totally same. Also we need to use a GPS module with Raspberry Pi. I am going to use Neo 6M GPS module as it’s quite cheap and also very much accurate.</p>
+<figure class="align-center">
+  <a href="#"><img src="http://localhost:4000/blog/img/tracker/neo.jpg" alt="" width="360" height="300" /></a>
+  <figcaption><center>Neo 6M GPS module</center></figcaption>
+</figure>
+<p>But you are free to use any GPS module. Now if you don’t know how to use a GPS module with Raspberry Pi, you can visit my previous blog, where I have shown how to use Neo 6M GPS module with Raspberry Pi and also how to write a python code to access the GPS data. Here the link of that blog <a href="https://sparklers-the-makers.github.io/blog/robotics/use-neo-6m-module-with-raspberry-pi/">Use Neo 6M GPS Module with Raspberry Pi and Python</a>. Also you can watch this video where I have practically shown how to do this:</p>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/N8fH0nc9v9Q?" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<p>So make sure you have visited that blog or watched this video before proceeding further.</p>
+
+<p>So after taking all those steps our hardware is ready and if we power it on, it will look something like this:
+<img src="http://localhost:4000/blog/img/gps/blink.gif" class="align-center" alt="" width="480" height="360" /></p>
+
+<p>Now let’s make a realtime GPS tracker using this hardware setup:</p>
+<h2 id="software-part">Software Part:</h2>
+<p>So here we have to do 2 things:<br />
+      a. Making a webpage, where the live location of the device will be shown.<br />
+      b. Sending the GPS data from Raspberry Pi to the webpage.</p>
+<h3 id="a-making-a-realtime-geolocation-tracking-webpage">a. Making a Realtime geolocation tracking webpage:</h3>
+<p>So let’s make the webpage first. So here we will use a API called <a href="https://www.pubnub.com/">PubNub</a>, which is used to deliver realtime data. Here we will use this to send our GPS data from Raspberry Pi to our webpage. We are using this API for 3 reasons:<br />
+      a. This will make things easier for beginners as we don’t have to deal with things like sockets, public IP etc.<br />
+      b. Its free until you scale.<br />
+      c. Most importantly you don’t have upload your webpage on any kind of server (No need to pay money for a server).<br /></p>
+
+<p>Now here’s the code for our tracking webpage:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Realtime GPS Tracker<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"map.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bg"</span><span class="nt">&gt;&lt;/div&gt;</span>
+     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bg-others"</span><span class="nt">&gt;</span> 
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1</span> <span class="nt">&gt;</span>Realtime GPS Tracker with Raspberry PI<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;center&gt;&lt;hr</span> <span class="na">style=</span><span class="s">"height:2px; border:none; color:#ffffff; background-color:#ffffff; width:35%; margin: 0 auto 0 auto;"</span><span class="nt">&gt;&lt;/center&gt;</span>
+        <span class="nt">&lt;p&gt;</span>by SPARKLERS: We Are The Makers<span class="nt">&lt;/p&gt;</span>  
+        <span class="nt">&lt;center&gt;&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-success col-sm-3"</span> <span class="na">id=</span><span class="s">"action"</span><span class="nt">&gt;</span>Start Tracking<span class="nt">&lt;/button&gt;&lt;/center&gt;&lt;br&gt;</span>
+        <span class="nt">&lt;center&gt;&lt;div</span> <span class="na">id=</span><span class="s">"map-canvas"</span><span class="nt">&gt;&lt;/div&gt;&lt;/center&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">lat</span> <span class="o">=</span> <span class="mf">37.7850</span><span class="p">;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">lng</span> <span class="o">=</span> <span class="o">-</span><span class="mf">122.4383</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">map</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">mark</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">lineCoords</span> <span class="o">=</span> <span class="p">[];</span>
+      
+    <span class="kd">var</span> <span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">map</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nb">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'map-canvas'</span><span class="p">),</span> <span class="p">{</span><span class="na">center</span><span class="p">:{</span><span class="na">lat</span><span class="p">:</span><span class="nx">lat</span><span class="p">,</span><span class="na">lng</span><span class="p">:</span><span class="nx">lng</span><span class="p">},</span><span class="na">zoom</span><span class="p">:</span><span class="mi">12</span><span class="p">});</span>
+      <span class="nx">mark</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span><span class="na">position</span><span class="p">:{</span><span class="na">lat</span><span class="p">:</span><span class="nx">lat</span><span class="p">,</span> <span class="na">lng</span><span class="p">:</span><span class="nx">lng</span><span class="p">},</span> <span class="na">map</span><span class="p">:</span><span class="nx">map</span><span class="p">});</span>
+    <span class="p">};</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">initialize</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">redraw</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">payload</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">lat</span><span class="p">){</span>
+      <span class="nx">lat</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">lat</span><span class="p">;</span>
+      <span class="nx">lng</span> <span class="o">=</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">lng</span><span class="p">;</span>
+
+      <span class="nx">map</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">({</span><span class="na">lat</span><span class="p">:</span><span class="nx">lat</span><span class="p">,</span> <span class="na">lng</span><span class="p">:</span><span class="nx">lng</span><span class="p">,</span> <span class="na">alt</span><span class="p">:</span><span class="mi">0</span><span class="p">});</span>
+      <span class="nx">mark</span><span class="p">.</span><span class="nx">setPosition</span><span class="p">({</span><span class="na">lat</span><span class="p">:</span><span class="nx">lat</span><span class="p">,</span> <span class="na">lng</span><span class="p">:</span><span class="nx">lng</span><span class="p">,</span> <span class="na">alt</span><span class="p">:</span><span class="mi">0</span><span class="p">});</span>
+      
+      <span class="nx">lineCoords</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span> <span class="nx">lng</span><span class="p">));</span>
+
+      <span class="kd">var</span> <span class="nx">lineCoordinatesPath</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Polyline</span><span class="p">({</span>
+        <span class="na">path</span><span class="p">:</span> <span class="nx">lineCoords</span><span class="p">,</span>
+        <span class="na">geodesic</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">strokeColor</span><span class="p">:</span> <span class="s1">'#2E10FF'</span>
+      <span class="p">});</span>
+      
+      <span class="nx">lineCoordinatesPath</span><span class="p">.</span><span class="nx">setMap</span><span class="p">(</span><span class="nx">map</span><span class="p">);}</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">pnChannel</span> <span class="o">=</span> <span class="s2">"raspi-tracker"</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">pubnub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PubNub</span><span class="p">({</span>
+      <span class="na">publishKey</span><span class="p">:</span>   <span class="s1">'YOUR_PUBLISH_KEY'</span><span class="p">,</span>
+      <span class="na">subscribeKey</span><span class="p">:</span> <span class="s1">'YOUR_SUBSCRIBE_KEY'</span>
+    <span class="p">});</span>
+        
+    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#action'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">textContent</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">text</span> <span class="o">==</span> <span class="s2">"Start Tracking"</span><span class="p">){</span>
+            <span class="nx">pubnub</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span><span class="na">channels</span><span class="p">:</span> <span class="p">[</span><span class="nx">pnChannel</span><span class="p">]});</span>
+            <span class="nx">pubnub</span><span class="p">.</span><span class="nx">addListener</span><span class="p">({</span><span class="na">message</span><span class="p">:</span><span class="nx">redraw</span><span class="p">});</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'btn-danger'</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">'btn-success'</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Stop Tracking'</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="nx">pubnub</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">(</span> <span class="p">{</span><span class="na">channels</span><span class="p">:</span> <span class="p">[</span><span class="nx">pnChannel</span><span class="p">]</span> <span class="p">});</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">'btn-danger'</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'btn-success'</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Start Tracking'</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">});</span>
+    
+    <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=YOUR_GOOGLE_API_KEY&amp;callback=initialize"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Now to make this code work you need to change two things:<br />
+a. You need to add the publish and subscribe key in the code:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var pubnub = new PubNub({
+publishKey:   'Your Publish key',
+subscribeKey: 'Your Subscribe Key'
+});
+</code></pre></div></div>
+<p>To get this publish and subscribe key: <br />
+        	1. you need to<a href="https://admin.pubnub.com/#/register">Sign Up</a> in PubNub [It’s free].<br />
+        	2. Then go to the <a href="https:/ admin.pubnub.com/">Admin Dashboard</a> to get your keys.
+<img src="http://localhost:4000/blog/img/tracker/key2.png" class="align-center" alt="" width="400" height="300" />
+       	3. Finally just copy-paste the keys in the code.<br /></p>
+
+<p>b. Now after this you need a Google map API key. To get this <br />
+       	1. Go to <a href="https://console.cloud.google.com/apis/credentials"> Google Cloud Console</a>.<br />
+       	2. Search for “Maps JavaScript API” and enable that.<br />
+       	3. Go to credentials, make a credential and copy the API key.<br />
+       	4. Paste the API key in code:<br /></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=YOUR_GOOGLE_API_KEY&amp;callback=initialize"&gt;&lt;/script&gt;
+</code></pre></div></div>
+<p>Now save this file with a .html file extension(i.e. map.html). As the Javascript code is small, I have written this inside the html file. 
+For the explanation of this code you can watch my youtube video on this. Also you can visit official blog by PubNub <a href="https://www.pubnub.com/developers/tutorials/javascript/google-maps-api-map-markers/#">JavaScript Geolocation Tracking with Google Maps API</a>, where they have shown how to create a basic geolocation tracking webpage with Google maps API.<br /></p>
+
+<p>To style this page I have also applied some CSS, which you can find below:</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span><span class="o">,</span> <span class="nt">html</span> <span class="p">{</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.bg</span> <span class="p">{</span>
+  <span class="c">/* The image used */</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg')</span><span class="p">;</span>
+  <span class="nl">filter</span><span class="p">:</span> <span class="n">blur</span><span class="p">(</span><span class="m">1px</span><span class="p">);</span>
+  <span class="nl">-webkit-filter</span><span class="p">:</span> <span class="n">blur</span><span class="p">(</span><span class="m">1px</span><span class="p">);</span>
+  <span class="c">/* Full height */</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+
+  <span class="c">/* Center and scale the image nicely */</span>
+  <span class="nl">background-position</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">no-repeat</span><span class="p">;</span>
+  <span class="nl">background-size</span><span class="p">:</span> <span class="n">cover</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.bg-others</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">);</span> 
+  <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span> <span class="m">0.4</span><span class="p">);</span> 
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">3px</span> <span class="nb">solid</span> <span class="m">#f1f1f1</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">80%</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translate</span><span class="p">(</span><span class="m">-50%</span><span class="p">,</span> <span class="m">-50%</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.hr1</span><span class="p">{</span>
+   <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span> 
+<span class="p">}</span>
+<span class="nf">#map-canvas</span><span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span><span class="m">720px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span><span class="m">400px</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">6px</span> <span class="nb">solid</span> <span class="m">#056af7</span><span class="p">;</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">8px</span> <span class="m">0</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.2</span><span class="p">),</span> <span class="m">0</span> <span class="m">6px</span> <span class="m">20px</span> <span class="m">0</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.19</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Save this file with the name “map.css” in the same folder, where you have saved the html file. Now open the html file in any browser and it will look like this:</p>
+
+<p><img src="http://localhost:4000/blog/img/tracker/map.png" class="align-center" alt="" width="480" height="360" /></p>
+
+<p>As you can see the red marker is pointing to San Francisco and this is because we have initalized the marker with the GPS cordinates of San Francisco.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>window.lat = 37.7850;
+window.lng = -122.4383;
+</code></pre></div></div>
+<p>You can change this cordinates with any GPS cordinates and initially the marker will point to that place.</p>
+
+<p>Also note the channel name used in the code as we need to use this in our python code:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var pnChannel = "raspi-tracker";
+</code></pre></div></div>
+<p>You can also change this name to anything you want, but the same name must be used in the python code.</p>
+
+<h3 id="b-python-code-for-raspberry-pi">b. Python Code for Raspberry Pi:</h3>
+<p>So in the last blog we have written this python code to print the GPS data in console:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">pynmea2</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+	<span class="n">port</span><span class="o">=</span><span class="s">"/dev/ttyAMA0"</span>
+	<span class="n">ser</span><span class="o">=</span><span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+	<span class="n">dataout</span> <span class="o">=</span> <span class="n">pynmea2</span><span class="o">.</span><span class="n">NMEAStreamReader</span><span class="p">()</span>
+	<span class="n">newdata</span><span class="o">=</span><span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+	<span class="k">if</span> <span class="n">newdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s">"$GPRMC"</span><span class="p">:</span>
+		<span class="n">newmsg</span><span class="o">=</span><span class="n">pynmea2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
+		<span class="n">lat</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">latitude</span>
+		<span class="n">lng</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">longitude</span>
+		<span class="n">gps</span> <span class="o">=</span> <span class="s">"Latitude="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">+</span> <span class="s">"and Longitude="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lng</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">gps</span><span class="p">)</span>
+</code></pre></div></div>
+<p>And the output was like this:</p>
+
+<p><img src="http://localhost:4000/blog/img/gps/t.png" class="align-center" alt="" width="600" height="360" /></p>
+
+<p>Now lets modify this python code so that it can send data to the webpage.<br />
+We need a python library here to use PubNub in our python code. To install that library use this command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install 'pubnub&gt;=4.1.4'
+</code></pre></div></div>
+<p>Now we are ready to write the code:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">pynmea2</span>
+<span class="kn">from</span> <span class="nn">pubnub.pnconfiguration</span> <span class="kn">import</span> <span class="n">PNConfiguration</span>
+<span class="kn">from</span> <span class="nn">pubnub.pubnub</span> <span class="kn">import</span> <span class="n">PubNub</span>
+<span class="kn">from</span> <span class="nn">pubnub.exceptions</span> <span class="kn">import</span> <span class="n">PubNubException</span>
+
+<span class="n">pnChannel</span> <span class="o">=</span> <span class="s">"raspi-tracker"</span><span class="p">;</span>
+
+<span class="n">pnconfig</span> <span class="o">=</span> <span class="n">PNConfiguration</span><span class="p">()</span>
+<span class="n">pnconfig</span><span class="o">.</span><span class="n">subscribe_key</span> <span class="o">=</span> <span class="s">"Your Subscribe key"</span>
+<span class="n">pnconfig</span><span class="o">.</span><span class="n">publish_key</span> <span class="o">=</span> <span class="s">"Your Publish key"</span>
+<span class="n">pnconfig</span><span class="o">.</span><span class="n">ssl</span> <span class="o">=</span> <span class="bp">False</span>
+ 
+<span class="n">pubnub</span> <span class="o">=</span> <span class="n">PubNub</span><span class="p">(</span><span class="n">pnconfig</span><span class="p">)</span>
+<span class="n">pubnub</span><span class="o">.</span><span class="n">subscribe</span><span class="p">()</span><span class="o">.</span><span class="n">channels</span><span class="p">(</span><span class="n">pnChannel</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+	<span class="n">port</span><span class="o">=</span><span class="s">"/dev/ttyAMA0"</span>
+	<span class="n">ser</span><span class="o">=</span><span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+	<span class="n">dataout</span> <span class="o">=</span> <span class="n">pynmea2</span><span class="o">.</span><span class="n">NMEAStreamReader</span><span class="p">()</span>
+	<span class="n">newdata</span><span class="o">=</span><span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+	<span class="k">if</span> <span class="n">newdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s">"$GPRMC"</span><span class="p">:</span>
+		<span class="n">newmsg</span><span class="o">=</span><span class="n">pynmea2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
+		<span class="n">lat</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">latitude</span>
+		<span class="n">lng</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">longitude</span>
+		<span class="k">try</span><span class="p">:</span>
+		    <span class="n">envelope</span> <span class="o">=</span> <span class="n">pubnub</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">pnChannel</span><span class="p">)</span><span class="o">.</span><span class="n">message</span><span class="p">({</span>
+			<span class="s">'lat'</span><span class="p">:</span><span class="n">lat</span><span class="p">,</span>
+			<span class="s">'lng'</span><span class="p">:</span><span class="n">lng</span>
+		    <span class="p">})</span><span class="o">.</span><span class="n">sync</span><span class="p">()</span>
+		    <span class="k">print</span><span class="p">(</span><span class="s">"publish timetoken: </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">envelope</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">timetoken</span><span class="p">)</span>
+		<span class="k">except</span> <span class="n">PubNubException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+		    <span class="n">handle_exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div></div>
+<p>So here again you need to write the publish key and subscribe key. And also note we have used the channel name “raspi-tracker” here as we have used in the javascript code.</p>
+
+<p>Now if we run this python code in Raspberry Pi, you will immediately see that the marker in the map will point to your current location.</p>
+
+<p>And as you will move the device in different locations, the marker will also move and also will draw the path. Now after I had a small walk with this device, this is how the map is looking like:</p>
+
+<figure class="align-center">
+  <a href="#"><img src="http://localhost:4000/blog/img/tracker/map_local2.gif" alt="" width="480" height="360" /></a>
+  <figcaption><center>Realtime Testing</center></figcaption>
+</figure>
+
+<p>So as you can see our live GPS tracking device and the webpage is ready. Now you can host this webpage in any webserver if you want to access this page from anywhere in the world. But if you don’t host it in any server, still it will work just by opening the html file in any browser.</p>
+
+      </div>
+
+<div id="share-bar">
+
+    <h4>Share this:</h4>
+
+    <div class="share-buttons">
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Facebook" >
+            <i class="fa fa-facebook-official share-button"> facebook</i>
+        </a>
+
+        <a  href="https://twitter.com/intent/tweet?text=Make a Realtime GPS Tracker device with Raspberry Pi&url=http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Twitter" >
+            <i class="fa fa-twitter share-button"> twitter</i>
+        </a>
+
+
+        <a  href="https://www.pinterest.com/pin/create/button/?url=http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Pinterest" >
+            <i class="fa fa-pinterest-p share-button"> pinterest</i>
+        </a>
+
+
+        <a  href="http://www.reddit.com/submit?url=http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Reddit" >
+            <i class="fa fa-reddit-alien share-button"> reddit</i>
+        </a>
+
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/&title=Make a Realtime GPS Tracker device with Raspberry Pi&summary=Make A Realtime GPS Tracker Device With Raspberry Pi.&source=SPARKLERS:We Are The Makers"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on LinkedIn" >
+            <i class="fa fa-linkedin share-button"> linkedin</i>
+        </a>
+
+        <a  href="mailto:?subject=Make a Realtime GPS Tracker device with Raspberry Pi&amp;body=Check out this site http://localhost:4000/blog/robotics/realtime-gps-tracker-with-raspberry-pi/"
+            title="Share via Email" >
+            <i class="fa fa-envelope share-button"> email</i>
+        </a>
+    </div>
+
+</div>
+
+<hr>
+<h3>The Author :</h3>
+<section class="author-box">
+  <img src="http://localhost:4000/blog/team/img/team/3.jpg" alt="" class="author-img">
+  <div class="author-desc">
+    <h2>Arijit Das</h2>
+    <p>I am a computer science engineering student. I believe that piece of code is mightier than pen as well as a sword. Programming and Solving problems are my passion and that what I strive to practice for my career.</p>
+    <ul>
+      
+        <li class="email"><a href="mailto:arijit1080@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+      
+      
+        <li class="phone"><a href="tel:918617219494"><i class="fa fa-phone"></i></a></li>
+      
+      
+        <li class="linkedin"><a href="http://www.linkedin.com/in/arijit-das-1080/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      
+      
+        <li class="facebook"><a href="https://www.facebook.com/profile.php?id=100009569555607" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      
+    </ul>
+  </div>
+</section>
+
+<hr>
+<h2>Like our facebook page and subscribe to our youtube channel so that you won't miss out future updates:</h2>
+<p>Follow us on facebook at : <a href="https://www.facebook.com/sparklers2018">
+  <span class="icon icon--facebook"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg></span>
+  <span class="label">sparklers2018</span>
+</a>
+</p>
+<p>For our latest videos subscribe us at : <a href="https://www.youtube.com/channel/UCB_0Vf--hJAqadjJPNhHmFg">
+  <span class="icon icon--youtube"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M0 7.345c0-1.294.16-2.59.16-2.59s.156-1.1.636-1.587c.608-.637 1.408-.617 1.764-.684C3.84 2.36 8 2.324 8 2.324s3.362.004 5.6.166c.314.038.996.04 1.604.678.48.486.636 1.588.636 1.588S16 6.05 16 7.346v1.258c0 1.296-.16 2.59-.16 2.59s-.156 1.102-.636 1.588c-.608.638-1.29.64-1.604.678-2.238.162-5.6.166-5.6.166s-4.16-.037-5.44-.16c-.356-.067-1.156-.047-1.764-.684-.48-.487-.636-1.587-.636-1.587S0 9.9 0 8.605v-1.26zm6.348 2.73V5.58l4.323 2.255-4.32 2.24z"/></svg></span>
+  <span class="label">SPARKLERS:We Are The Makers</span>
+</a>
+
+      <!--
+        
+      -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = sparklers-the-makers.github.io/blog;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = sparklers-the-makers.github.io/blog; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sparklers-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </article>
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  <label class="visually-hidden" for="search">Site Search</label>
+        <input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="Enter your search term..." />
+        <div id="results" class="results"></div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    
+<footer class="main_footer">
+
+<section class="newsletter" id="mc_embed_signup">
+  <h2 class="newsletter_title">Newsletter</h2>
+  <form action="https://feedburner.google.com/fb/a/mailverify" id="feedform" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=SparklersweAreTheMakers', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+    <label for="mce-EMAIL">Subscribe here to get our latest updates</label>
+    <div class="newsletter_box" id="mc_embed_signup_scroll">
+      <input type="email" name="email" placeholder="Email address" class="email_input" id="mce-EMAIL" required>
+      <input type="hidden" value="SparklersweAreTheMakers" name="uri"><input type="hidden" name="loc" value="en_US">
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe_btn" id="mc-embedded-subscribe">
+    </div>
+  </form>
+</section> <!-- End Section Newsletter -->
+
+
+    
+<ul class="social_footer">
+  
+  <li><a href="mailto:sparkler988323@gmail.com" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>      
+  
+  
+  <li><a href="#hook" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+  
+  
+  <li><a href="https://www.youtube.com/channel/UCB_0Vf--hJAqadjJPNhHmFg" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+  
+  
+  <li><a href="https://www.facebook.com/sparklers2018/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+  
+</ul>
+
+    <div class="copyright">
+      <p>&copy; 2019 All rights reserved. Design by <a href="" target="_blank">Sparklers</a></p>
+    </div>
+</footer> <!-- End Section Footer -->
+
+
+    
+
+<script async src="/blog/assets/javascripts/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="http://localhost:4000/blog/assets/javascripts/lunr/lunr.min.js"></script>
+  <script src="http://localhost:4000/blog/assets/javascripts/search-data.json"></script>
+  <script>
+    var idx = lunr(function () {
+      
+      // the, the normal lunr index initialization
+      this.field('title')
+      this.field('excerpt')
+      this.field('categories')
+      this.field('tags')
+      this.ref('id')
+
+      this.pipeline.remove(lunr.trimmer)
+
+      // add documents to index
+      for (var item in store) {
+        this.add({
+          title: store[item].title,
+          excerpt: store[item].excerpt,
+          categories: store[item].categories,
+          tags: store[item].tags,
+          id: item
+        })
+      }
+    });
+
+    console.log(jQuery.type(idx));
+
+    $(document).ready(function () {
+      $('input#search').on('keyup', function () {
+        var resultdiv = $('#results');
+        var query = $(this).val().toLowerCase();
+        var result =
+          idx.query(function (q) {
+            query.split(lunr.tokenizer.separator).forEach(function (term) {
+              q.term(term, { boost: 100 })
+              if (query.lastIndexOf(" ") != query.length - 1) {
+                q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+              }
+              if (term != "") {
+                q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+              }
+            })
+          });
+        resultdiv.empty();
+        resultdiv.prepend('<p id="results-count" class="results-found">' + result.length + ' Result(s) found</p>');
+        for (var item in result) {
+          var ref = result[item].ref;
+          var searchitem =
+            '<article class="entry">' +
+              '<h3 class="entry-title">' +
+                '<a href="' + store[ref].url + '">' + store[ref].title + '</a>' +
+              '</h3>' +
+              '<div class="entry-excerpt">' +
+                '<p>' + store[ref].excerpt.split(" ").splice(0, 20).join(" ") + '...</p>' +
+              '</div>' +
+            '</article>';
+          resultdiv.append(searchitem);
+        }
+      });
+    });
+  </script>
+
+
+    
+
+  </body>
+
+</html>
