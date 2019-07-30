@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="description" content="In this article we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python and...">
+     <meta name="description" content="In this article, we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python, a...">
 <title>
    
        Make a Realtime GPS Tracker device with Raspberry Pi
@@ -278,7 +278,7 @@ Get our newsletters right into your inbox by subscribing us.
   <div class="inner">
     <article class="entry-wrap">
       <div class="entry-content">
-        <p>In this article we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python and Javascript. At the end our client side will look something like this:</p>
+        <p>In this article, we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python, and Javascript. At the end our client-side will look something like this:</p>
 
 <figure class="align-center">
   <a href="#"><img src="http://localhost:4000/blog/img/tracker/map2.gif" alt="" width="480" height="360" /></a>
@@ -286,7 +286,7 @@ Get our newsletters right into your inbox by subscribing us.
 </figure>
 
 <h2 id="hardware-part">Hardware Part:</h2>
-<p>So here I am going to use Raspberry Pi 3B+ but you can also use Raspberry Pi zero as in that case the size of the device will be much smaller and the procedure is totally same. Also we need to use a GPS module with Raspberry Pi. I am going to use Neo 6M GPS module as it’s quite cheap and also very much accurate.</p>
+<p>So here I am going to use Raspberry Pi 3B+, but you can also use Raspberry Pi zero as in that case the size of the device will be much smaller and the procedure is the same. Also, we need to use a GPS module with Raspberry Pi. I am going to use Neo 6M GPS module as it’s quite cheap and also very much accurate.</p>
 <figure class="align-center">
   <a href="#"><img src="http://localhost:4000/blog/img/tracker/neo.jpg" alt="" width="360" height="300" /></a>
   <figcaption><center>Neo 6M GPS module</center></figcaption>
@@ -302,14 +302,14 @@ Get our newsletters right into your inbox by subscribing us.
 
 <p>Now let’s make a realtime GPS tracker using this hardware setup:</p>
 <h2 id="software-part">Software Part:</h2>
-<p>So here we have to do 2 things:<br />
+<p>So here we have to do two things:<br />
       a. Making a webpage, where the live location of the device will be shown.<br />
       b. Sending the GPS data from Raspberry Pi to the webpage.</p>
 <h3 id="a-making-a-realtime-geolocation-tracking-webpage">a. Making a Realtime geolocation tracking webpage:</h3>
-<p>So let’s make the webpage first. So here we will use a API called <a href="https://www.pubnub.com/">PubNub</a>, which is used to deliver realtime data. Here we will use this to send our GPS data from Raspberry Pi to our webpage. We are using this API for 3 reasons:<br />
-      a. This will make things easier for beginners as we don’t have to deal with things like sockets, public IP etc.<br />
-      b. Its free until you scale.<br />
-      c. Most importantly you don’t have upload your webpage on any kind of server (No need to pay money for a server).<br /></p>
+<p>So let’s make the webpage first. So here we will use a API called <a href="https://www.pubnub.com/">PubNub</a>, which is used to deliver realtime data. Here we will use this to send our GPS data from Raspberry Pi to our webpage. We are using this API for three reasons:<br />
+      a. This will make things easier for beginners as we don’t have to deal with things like sockets, public IP, etc.<br />
+      b. It’s free until you scale.<br />
+      c. Most importantly you don’t have upload your webpage on any server (No need to pay money for a server).<br /></p>
 
 <p>Now here’s the code for our tracking webpage:</p>
 
@@ -391,7 +391,6 @@ Get our newsletters right into your inbox by subscribing us.
             <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"action"</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Start Tracking'</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="p">});</span>
-    
     <span class="nt">&lt;/script&gt;</span>
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=YOUR_GOOGLE_API_KEY&amp;callback=initialize"</span><span class="nt">&gt;&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
@@ -406,22 +405,22 @@ subscribeKey: 'Your Subscribe Key'
 });
 </code></pre></div></div>
 <p>To get this publish and subscribe key: <br />
-        	1. you need to<a href="https://admin.pubnub.com/#/register">Sign Up</a> in PubNub [It’s free].<br />
-        	2. Then go to the <a href="https:/ admin.pubnub.com/">Admin Dashboard</a> to get your keys.
+            1. you need to<a href="https://admin.pubnub.com/#/register">Sign Up</a> in PubNub [It’s free].<br />
+            2. Then go to the <a href="https:/ admin.pubnub.com/">Admin Dashboard</a> to get your keys.
 <img src="http://localhost:4000/blog/img/tracker/key2.png" class="align-center" alt="" width="400" height="300" />
-       	3. Finally just copy-paste the keys in the code.<br /></p>
+           3. Finally just copy-paste the keys in the code.<br /></p>
 
 <p>b. Now after this you need a Google map API key. To get this <br />
-       	1. Go to <a href="https://console.cloud.google.com/apis/credentials"> Google Cloud Console</a>.<br />
-       	2. Search for “Maps JavaScript API” and enable that.<br />
-       	3. Go to credentials, make a credential and copy the API key.<br />
-       	4. Paste the API key in code:<br /></p>
+           1. Go to <a href="https://console.cloud.google.com/apis/credentials"> Google Cloud Console</a>.<br />
+           2. Search for “Maps JavaScript API” and enable that.<br />
+           3. Go to credentials, make a credential and copy the API key.<br />
+           4. Paste the API key in code:<br /></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=YOUR_GOOGLE_API_KEY&amp;callback=initialize"&gt;&lt;/script&gt;
 </code></pre></div></div>
 <p>Now save this file with a .html file extension(i.e. map.html). As the Javascript code is small, I have written this inside the html file. 
-For the explanation of this code you can watch my youtube video on this. Also you can visit official blog by PubNub <a href="https://www.pubnub.com/developers/tutorials/javascript/google-maps-api-map-markers/#">JavaScript Geolocation Tracking with Google Maps API</a>, where they have shown how to create a basic geolocation tracking webpage with Google maps API.<br /></p>
+For the explanation of this code, you can watch my youtube video on this. Also, you can visit the official blog by PubNub <a href="https://www.pubnub.com/developers/tutorials/javascript/google-maps-api-map-markers/#">JavaScript Geolocation Tracking with Google Maps API</a>, where they have shown how to create basic geolocation tracking webpage with Google maps API.<br /></p>
 
-<p>To style this page I have also applied some CSS, which you can find below:</p>
+<p>To style this page, I have also applied some CSS, which you can find below:</p>
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span><span class="o">,</span> <span class="nt">html</span> <span class="p">{</span>
   <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
 <span class="p">}</span>
@@ -467,16 +466,37 @@ For the explanation of this code you can watch my youtube video on this. Also yo
 
 <p><img src="http://localhost:4000/blog/img/tracker/map.png" class="align-center" alt="" width="480" height="360" /></p>
 
-<p>As you can see the red marker is pointing to San Francisco and this is because we have initalized the marker with the GPS cordinates of San Francisco.</p>
+<p>As you can see, the red marker is pointing to San Francisco, and this is because we have initialized the marker with the GPS coordinates of San Francisco.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>window.lat = 37.7850;
 window.lng = -122.4383;
 </code></pre></div></div>
-<p>You can change this cordinates with any GPS cordinates and initially the marker will point to that place.</p>
+<p>You can change these coordinates with any GPS coordinates, and initially, the marker will point to that place.</p>
 
-<p>Also note the channel name used in the code as we need to use this in our python code:</p>
+<p>Also, note the channel name used in the code as we need to use this in our python code:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var pnChannel = "raspi-tracker";
 </code></pre></div></div>
 <p>You can also change this name to anything you want, but the same name must be used in the python code.</p>
+<h4 id="testing-our-webpage">Testing our Webpage:</h4>
+<p>Now our webpage is ready, so to check if it’s working properly we can do a small trick. We can add this Javascript code below at the end of our webpage code:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+<span class="kd">function</span> <span class="nx">newPoint</span><span class="p">(</span><span class="nx">time</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">radius</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">radius</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">radius</span><span class="p">;</span>
+      <span class="k">return</span> <span class="p">{</span><span class="na">lat</span><span class="p">:</span><span class="nb">window</span><span class="p">.</span><span class="nx">lat</span> <span class="o">+</span> <span class="nx">y</span><span class="p">,</span> <span class="na">lng</span><span class="p">:</span><span class="nb">window</span><span class="p">.</span><span class="nx">lng</span> <span class="o">+</span> <span class="nx">x</span><span class="p">};</span>
+        <span class="p">}</span>
+      <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">pubnub</span><span class="p">.</span><span class="nx">publish</span><span class="p">({</span><span class="na">channel</span><span class="p">:</span><span class="nx">pnChannel</span><span class="p">,</span> <span class="na">message</span><span class="p">:</span><span class="nx">newPoint</span><span class="p">()});</span>
+      <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>This snippet of code will generate a random coordinate (latitude and longitude) after every 500 milliseconds and publish that on the same channel so that the marker will automatically mark on some random points in the map and also create the path through those points. So now if you open the webpage in the browser, you will see a random path is generating in the map and from this, you can confirm that the map is working correctly.</p>
+
+<figure class="align-center">
+  <a href="#"><img src="http://localhost:4000/blog/img/tracker/map_random.gif" alt="" width="480" height="360" /></a>
+  <figcaption><center>Random Path Generation</center></figcaption>
+</figure>
 
 <h3 id="b-python-code-for-raspberry-pi">b. Python Code for Raspberry Pi:</h3>
 <p>So in the last blog we have written this python code to print the GPS data in console:</p>
@@ -487,23 +507,23 @@ window.lng = -122.4383;
 <span class="kn">import</span> <span class="nn">pynmea2</span>
 
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-	<span class="n">port</span><span class="o">=</span><span class="s">"/dev/ttyAMA0"</span>
-	<span class="n">ser</span><span class="o">=</span><span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-	<span class="n">dataout</span> <span class="o">=</span> <span class="n">pynmea2</span><span class="o">.</span><span class="n">NMEAStreamReader</span><span class="p">()</span>
-	<span class="n">newdata</span><span class="o">=</span><span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="n">port</span><span class="o">=</span><span class="s">"/dev/ttyAMA0"</span>
+    <span class="n">ser</span><span class="o">=</span><span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">dataout</span> <span class="o">=</span> <span class="n">pynmea2</span><span class="o">.</span><span class="n">NMEAStreamReader</span><span class="p">()</span>
+    <span class="n">newdata</span><span class="o">=</span><span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 
-	<span class="k">if</span> <span class="n">newdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s">"$GPRMC"</span><span class="p">:</span>
-		<span class="n">newmsg</span><span class="o">=</span><span class="n">pynmea2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-		<span class="n">lat</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">latitude</span>
-		<span class="n">lng</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">longitude</span>
-		<span class="n">gps</span> <span class="o">=</span> <span class="s">"Latitude="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">+</span> <span class="s">"and Longitude="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lng</span><span class="p">)</span>
-		<span class="k">print</span><span class="p">(</span><span class="n">gps</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">newdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s">"$GPRMC"</span><span class="p">:</span>
+        <span class="n">newmsg</span><span class="o">=</span><span class="n">pynmea2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
+        <span class="n">lat</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">latitude</span>
+        <span class="n">lng</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">longitude</span>
+        <span class="n">gps</span> <span class="o">=</span> <span class="s">"Latitude="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="o">+</span> <span class="s">"and Longitude="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lng</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">gps</span><span class="p">)</span>
 </code></pre></div></div>
 <p>And the output was like this:</p>
 
 <p><img src="http://localhost:4000/blog/img/gps/t.png" class="align-center" alt="" width="600" height="360" /></p>
 
-<p>Now lets modify this python code so that it can send data to the webpage.<br />
+<p>Now let’s modify this python code so that it can send data to the webpage.<br />
 We need a python library here to use PubNub in our python code. To install that library use this command:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install 'pubnub&gt;=4.1.4'
 </code></pre></div></div>
@@ -527,36 +547,36 @@ We need a python library here to use PubNub in our python code. To install that 
 <span class="n">pubnub</span><span class="o">.</span><span class="n">subscribe</span><span class="p">()</span><span class="o">.</span><span class="n">channels</span><span class="p">(</span><span class="n">pnChannel</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
 
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-	<span class="n">port</span><span class="o">=</span><span class="s">"/dev/ttyAMA0"</span>
-	<span class="n">ser</span><span class="o">=</span><span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-	<span class="n">dataout</span> <span class="o">=</span> <span class="n">pynmea2</span><span class="o">.</span><span class="n">NMEAStreamReader</span><span class="p">()</span>
-	<span class="n">newdata</span><span class="o">=</span><span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="n">port</span><span class="o">=</span><span class="s">"/dev/ttyAMA0"</span>
+    <span class="n">ser</span><span class="o">=</span><span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">dataout</span> <span class="o">=</span> <span class="n">pynmea2</span><span class="o">.</span><span class="n">NMEAStreamReader</span><span class="p">()</span>
+    <span class="n">newdata</span><span class="o">=</span><span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 
-	<span class="k">if</span> <span class="n">newdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s">"$GPRMC"</span><span class="p">:</span>
-		<span class="n">newmsg</span><span class="o">=</span><span class="n">pynmea2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
-		<span class="n">lat</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">latitude</span>
-		<span class="n">lng</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">longitude</span>
-		<span class="k">try</span><span class="p">:</span>
-		    <span class="n">envelope</span> <span class="o">=</span> <span class="n">pubnub</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">pnChannel</span><span class="p">)</span><span class="o">.</span><span class="n">message</span><span class="p">({</span>
-			<span class="s">'lat'</span><span class="p">:</span><span class="n">lat</span><span class="p">,</span>
-			<span class="s">'lng'</span><span class="p">:</span><span class="n">lng</span>
-		    <span class="p">})</span><span class="o">.</span><span class="n">sync</span><span class="p">()</span>
-		    <span class="k">print</span><span class="p">(</span><span class="s">"publish timetoken: </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">envelope</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">timetoken</span><span class="p">)</span>
-		<span class="k">except</span> <span class="n">PubNubException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-		    <span class="n">handle_exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">newdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s">"$GPRMC"</span><span class="p">:</span>
+        <span class="n">newmsg</span><span class="o">=</span><span class="n">pynmea2</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">newdata</span><span class="p">)</span>
+        <span class="n">lat</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">latitude</span>
+        <span class="n">lng</span><span class="o">=</span><span class="n">newmsg</span><span class="o">.</span><span class="n">longitude</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">envelope</span> <span class="o">=</span> <span class="n">pubnub</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">pnChannel</span><span class="p">)</span><span class="o">.</span><span class="n">message</span><span class="p">({</span>
+            <span class="s">'lat'</span><span class="p">:</span><span class="n">lat</span><span class="p">,</span>
+            <span class="s">'lng'</span><span class="p">:</span><span class="n">lng</span>
+            <span class="p">})</span><span class="o">.</span><span class="n">sync</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"publish timetoken: </span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="n">envelope</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">timetoken</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">PubNubException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">handle_exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div></div>
 <p>So here again you need to write the publish key and subscribe key. And also note we have used the channel name “raspi-tracker” here as we have used in the javascript code.</p>
 
-<p>Now if we run this python code in Raspberry Pi, you will immediately see that the marker in the map will point to your current location.</p>
+<p>Now if we run this python code on Raspberry Pi, you will immediately see that the marker on the map will point to your current location.</p>
 
-<p>And as you will move the device in different locations, the marker will also move and also will draw the path. Now after I had a small walk with this device, this is how the map is looking like:</p>
+<p>And as you will move the device in different locations, the marker will also move and also will draw the path. Now, after I had a short walk with this device, this is how the map is looking like:</p>
 
 <figure class="align-center">
   <a href="#"><img src="http://localhost:4000/blog/img/tracker/map_local2.gif" alt="" width="480" height="360" /></a>
   <figcaption><center>Realtime Testing</center></figcaption>
 </figure>
 
-<p>So as you can see our live GPS tracking device and the webpage is ready. Now you can host this webpage in any webserver if you want to access this page from anywhere in the world. But if you don’t host it in any server, still it will work just by opening the html file in any browser.</p>
+<p>So as you can see, our live GPS tracking device and the webpage is ready. Now you can host this webpage in any webserver if you want to access this page from anywhere in the world. But if you don’t host it in any server, still it will work just by opening the HTML file in any browser.</p>
 
       </div>
 

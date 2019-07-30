@@ -24,7 +24,7 @@ head-image: "/img/gps/gps.jpg"
 last_modified_at: 2019-07-11T11:52:25-05:00
 ---
 
-In this article we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python and Javascript. At the end our client side will look something like this:
+In this article, we are going to see how to make a realtime GPS tracker device, which you can track from anywhere in the world, using Raspberry Pi, Python, and Javascript. At the end our client-side will look something like this:
 
 <figure class="align-center">
   <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/tracker/map2.gif" alt="" width="480" height="360"></a>
@@ -32,7 +32,7 @@ In this article we are going to see how to make a realtime GPS tracker device, w
 </figure>
 
 ## Hardware Part:
-So here I am going to use Raspberry Pi 3B+ but you can also use Raspberry Pi zero as in that case the size of the device will be much smaller and the procedure is totally same. Also we need to use a GPS module with Raspberry Pi. I am going to use Neo 6M GPS module as it's quite cheap and also very much accurate.
+So here I am going to use Raspberry Pi 3B+, but you can also use Raspberry Pi zero as in that case the size of the device will be much smaller and the procedure is the same. Also, we need to use a GPS module with Raspberry Pi. I am going to use Neo 6M GPS module as it's quite cheap and also very much accurate.
 <figure class="align-center">
   <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/tracker/neo.jpg" alt="" width="360" height="300"></a>
   <figcaption><center>Neo 6M GPS module</center></figcaption>
@@ -47,14 +47,14 @@ So after taking all those steps our hardware is ready and if we power it on, it 
 
 Now let's make a realtime GPS tracker using this hardware setup:
 ## Software Part:
-So here we have to do 2 things:<br>
+So here we have to do two things:<br>
 &nbsp; &nbsp;&nbsp; &nbsp;a. Making a webpage, where the live location of the device will be shown.<br>
 &nbsp; &nbsp;&nbsp; &nbsp;b. Sending the GPS data from Raspberry Pi to the webpage.
 ### a. Making a Realtime geolocation tracking webpage: 
-So let's make the webpage first. So here we will use a API called <a href="https://www.pubnub.com/">PubNub</a>, which is used to deliver realtime data. Here we will use this to send our GPS data from Raspberry Pi to our webpage. We are using this API for 3 reasons:<br>
-&nbsp; &nbsp;&nbsp; &nbsp;a. This will make things easier for beginners as we don't have to deal with things like sockets, public IP etc.<br>
-&nbsp; &nbsp;&nbsp; &nbsp;b. Its free until you scale.<br>
-&nbsp; &nbsp;&nbsp; &nbsp;c. Most importantly you don't have upload your webpage on any kind of server (No need to pay money for a server).<br>
+So let's make the webpage first. So here we will use a API called <a href="https://www.pubnub.com/">PubNub</a>, which is used to deliver realtime data. Here we will use this to send our GPS data from Raspberry Pi to our webpage. We are using this API for three reasons:<br>
+&nbsp; &nbsp;&nbsp; &nbsp;a. This will make things easier for beginners as we don't have to deal with things like sockets, public IP, etc.<br>
+&nbsp; &nbsp;&nbsp; &nbsp;b. It's free until you scale.<br>
+&nbsp; &nbsp;&nbsp; &nbsp;c. Most importantly you don't have upload your webpage on any server (No need to pay money for a server).<br>
 
 Now here's the code for our tracking webpage:
 
@@ -137,7 +137,6 @@ Now here's the code for our tracking webpage:
             document.getElementById("action").textContent = 'Start Tracking';
         }
         });
-    
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=YOUR_GOOGLE_API_KEY&callback=initialize"></script>
   </body>
@@ -153,23 +152,23 @@ subscribeKey: 'Your Subscribe Key'
 });
 ```
 To get this publish and subscribe key: <br>
-&nbsp; &nbsp; &nbsp; &nbsp; 	1. you need to<a href="https://admin.pubnub.com/#/register">Sign Up</a> in PubNub [It's free].<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 	2. Then go to the <a href="https:/ admin.pubnub.com/">Admin Dashboard</a> to get your keys.
+&nbsp; &nbsp; &nbsp; &nbsp;     1. you need to<a href="https://admin.pubnub.com/#/register">Sign Up</a> in PubNub [It's free].<br>
+&nbsp; &nbsp; &nbsp; &nbsp;     2. Then go to the <a href="https:/ admin.pubnub.com/">Admin Dashboard</a> to get your keys.
 <img src="{{ site.url }}{{ site.baseurl }}/img/tracker/key2.png" class="align-center" alt="" width="400" height="300" >
-&nbsp; &nbsp;&nbsp; &nbsp; 	3. Finally just copy-paste the keys in the code.<br>
+&nbsp; &nbsp;&nbsp; &nbsp;     3. Finally just copy-paste the keys in the code.<br>
 
 b. Now after this you need a Google map API key. To get this <br>
-&nbsp; &nbsp;&nbsp; &nbsp; 	1. Go to <a href="https://console.cloud.google.com/apis/credentials"> Google Cloud Console</a>.<br>
-&nbsp; &nbsp;&nbsp; &nbsp; 	2. Search for "Maps JavaScript API" and enable that.<br>
-&nbsp; &nbsp;&nbsp; &nbsp; 	3. Go to credentials, make a credential and copy the API key.<br>
-&nbsp; &nbsp;&nbsp; &nbsp; 	4. Paste the API key in code:<br>
+&nbsp; &nbsp;&nbsp; &nbsp;     1. Go to <a href="https://console.cloud.google.com/apis/credentials"> Google Cloud Console</a>.<br>
+&nbsp; &nbsp;&nbsp; &nbsp;     2. Search for "Maps JavaScript API" and enable that.<br>
+&nbsp; &nbsp;&nbsp; &nbsp;     3. Go to credentials, make a credential and copy the API key.<br>
+&nbsp; &nbsp;&nbsp; &nbsp;     4. Paste the API key in code:<br>
 ```
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=YOUR_GOOGLE_API_KEY&callback=initialize"></script>
 ```
 Now save this file with a .html file extension(i.e. map.html). As the Javascript code is small, I have written this inside the html file. 
-For the explanation of this code you can watch my youtube video on this. Also you can visit official blog by PubNub <a href="https://www.pubnub.com/developers/tutorials/javascript/google-maps-api-map-markers/#">JavaScript Geolocation Tracking with Google Maps API</a>, where they have shown how to create a basic geolocation tracking webpage with Google maps API.<br>
+For the explanation of this code, you can watch my youtube video on this. Also, you can visit the official blog by PubNub <a href="https://www.pubnub.com/developers/tutorials/javascript/google-maps-api-map-markers/#">JavaScript Geolocation Tracking with Google Maps API</a>, where they have shown how to create basic geolocation tracking webpage with Google maps API.<br>
 
-To style this page I have also applied some CSS, which you can find below:
+To style this page, I have also applied some CSS, which you can find below:
 ```css
 body, html {
   height: 100%;
@@ -216,18 +215,40 @@ Save this file with the name "map.css" in the same folder, where you have saved 
 
 <img src="{{ site.url }}{{ site.baseurl }}/img/tracker/map.png" class="align-center" alt="" width="480" height="360" >
 
-As you can see the red marker is pointing to San Francisco and this is because we have initalized the marker with the GPS cordinates of San Francisco.
+As you can see, the red marker is pointing to San Francisco, and this is because we have initialized the marker with the GPS coordinates of San Francisco.
 ```
 window.lat = 37.7850;
 window.lng = -122.4383;
 ```
-You can change this cordinates with any GPS cordinates and initially the marker will point to that place.
+You can change these coordinates with any GPS coordinates, and initially, the marker will point to that place.
 
-Also note the channel name used in the code as we need to use this in our python code:
+Also, note the channel name used in the code as we need to use this in our python code:
 ```
 var pnChannel = "raspi-tracker";
 ```
 You can also change this name to anything you want, but the same name must be used in the python code.
+#### Testing our Webpage:
+Now our webpage is ready, so to check if it's working properly we can do a small trick. We can add this Javascript code below at the end of our webpage code:
+```html
+<script>
+function newPoint(time) {
+      var radius = 0.01;
+      var x = Math.random() * radius;
+      var y = Math.random() * radius;
+      return {lat:window.lat + y, lng:window.lng + x};
+        }
+      setInterval(function() {
+      pubnub.publish({channel:pnChannel, message:newPoint()});
+      }, 500);
+</script>
+```
+
+This snippet of code will generate a random coordinate (latitude and longitude) after every 500 milliseconds and publish that on the same channel so that the marker will automatically mark on some random points in the map and also create the path through those points. So now if you open the webpage in the browser, you will see a random path is generating in the map and from this, you can confirm that the map is working correctly.
+
+<figure class="align-center">
+  <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/tracker/map_random.gif" alt="" width="480" height="360"></a>
+  <figcaption><center>Random Path Generation</center></figcaption>
+</figure>
 
 ### b. Python Code for Raspberry Pi:
 So in the last blog we have written this python code to print the GPS data in console:
@@ -239,23 +260,23 @@ import string
 import pynmea2
 
 while True:
-	port="/dev/ttyAMA0"
-	ser=serial.Serial(port, baudrate=9600, timeout=0.5)
-	dataout = pynmea2.NMEAStreamReader()
-	newdata=ser.readline()
+    port="/dev/ttyAMA0"
+    ser=serial.Serial(port, baudrate=9600, timeout=0.5)
+    dataout = pynmea2.NMEAStreamReader()
+    newdata=ser.readline()
 
-	if newdata[0:6] == "$GPRMC":
-		newmsg=pynmea2.parse(newdata)
-		lat=newmsg.latitude
-		lng=newmsg.longitude
-		gps = "Latitude=" + str(lat) + "and Longitude=" + str(lng)
-		print(gps)
+    if newdata[0:6] == "$GPRMC":
+        newmsg=pynmea2.parse(newdata)
+        lat=newmsg.latitude
+        lng=newmsg.longitude
+        gps = "Latitude=" + str(lat) + "and Longitude=" + str(lng)
+        print(gps)
 ```
 And the output was like this:
 
 <img src="{{ site.url }}{{ site.baseurl }}/img/gps/t.png" class="align-center" alt="" width="600" height="360" >
 
-Now lets modify this python code so that it can send data to the webpage.<br>
+Now let's modify this python code so that it can send data to the webpage.<br>
 We need a python library here to use PubNub in our python code. To install that library use this command:
 ```
 pip install 'pubnub>=4.1.4'
@@ -281,33 +302,33 @@ pubnub = PubNub(pnconfig)
 pubnub.subscribe().channels(pnChannel).execute()
 
 while True:
-	port="/dev/ttyAMA0"
-	ser=serial.Serial(port, baudrate=9600, timeout=0.5)
-	dataout = pynmea2.NMEAStreamReader()
-	newdata=ser.readline()
+    port="/dev/ttyAMA0"
+    ser=serial.Serial(port, baudrate=9600, timeout=0.5)
+    dataout = pynmea2.NMEAStreamReader()
+    newdata=ser.readline()
 
-	if newdata[0:6] == "$GPRMC":
-		newmsg=pynmea2.parse(newdata)
-		lat=newmsg.latitude
-		lng=newmsg.longitude
-		try:
-		    envelope = pubnub.publish().channel(pnChannel).message({
-			'lat':lat,
-			'lng':lng
-		    }).sync()
-		    print("publish timetoken: %d" % envelope.result.timetoken)
-		except PubNubException as e:
-		    handle_exception(e)
+    if newdata[0:6] == "$GPRMC":
+        newmsg=pynmea2.parse(newdata)
+        lat=newmsg.latitude
+        lng=newmsg.longitude
+        try:
+            envelope = pubnub.publish().channel(pnChannel).message({
+            'lat':lat,
+            'lng':lng
+            }).sync()
+            print("publish timetoken: %d" % envelope.result.timetoken)
+        except PubNubException as e:
+            handle_exception(e)
 ```
 So here again you need to write the publish key and subscribe key. And also note we have used the channel name "raspi-tracker" here as we have used in the javascript code.
 
-Now if we run this python code in Raspberry Pi, you will immediately see that the marker in the map will point to your current location. 
+Now if we run this python code on Raspberry Pi, you will immediately see that the marker on the map will point to your current location. 
 
-And as you will move the device in different locations, the marker will also move and also will draw the path. Now after I had a small walk with this device, this is how the map is looking like:
+And as you will move the device in different locations, the marker will also move and also will draw the path. Now, after I had a short walk with this device, this is how the map is looking like:
 
 <figure class="align-center">
   <a href="#"><img src="{{ site.url }}{{ site.baseurl }}/img/tracker/map_local2.gif" alt="" width="480" height="360"></a>
   <figcaption><center>Realtime Testing</center></figcaption>
 </figure>
 
-So as you can see our live GPS tracking device and the webpage is ready. Now you can host this webpage in any webserver if you want to access this page from anywhere in the world. But if you don't host it in any server, still it will work just by opening the html file in any browser.
+So as you can see, our live GPS tracking device and the webpage is ready. Now you can host this webpage in any webserver if you want to access this page from anywhere in the world. But if you don't host it in any server, still it will work just by opening the HTML file in any browser.
