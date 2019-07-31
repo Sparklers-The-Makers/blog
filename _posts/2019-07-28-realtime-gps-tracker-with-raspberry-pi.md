@@ -153,7 +153,7 @@ subscribeKey: 'Your Subscribe Key'
 ```
 To get this publish and subscribe key: <br>
 &nbsp; &nbsp; &nbsp; &nbsp;     1. you need to<a href="https://admin.pubnub.com/#/register">Sign Up</a> in PubNub [It's free].<br>
-&nbsp; &nbsp; &nbsp; &nbsp;     2. Then go to the <a href="https:/ admin.pubnub.com/">Admin Dashboard</a> to get your keys.
+&nbsp; &nbsp; &nbsp; &nbsp;     2. Then go to the <a href="https://admin.pubnub.com/">Admin Dashboard</a> to get your keys.
 <img src="{{ site.url }}{{ site.baseurl }}/img/tracker/key2.png" class="align-center" alt="" width="400" height="300" >
 &nbsp; &nbsp;&nbsp; &nbsp;     3. Finally just copy-paste the keys in the code.<br>
 
